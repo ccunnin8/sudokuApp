@@ -14,7 +14,7 @@ const white = "\x1b[37m"
 
 
 //  *********** TEST BOARDS  *******************
-const testBoard = [
+export const testBoard = [
     [4, 3, 5, 2, 6, 9, 7, 8, 1],
     [6, 8, 2, 5, 7, 1, 4, 9, 3],
     [1, 9, 7, 8, 3, 4, 5, 6, 2],
@@ -64,7 +64,7 @@ const blankBoard = [
 
 // ************************************************
 
-function generateBoard() {
+export function generateBoard() {
     // generates a completed board generated randomly 
     let count = 0
     let blankCopy = JSON.parse(JSON.stringify(blankBoard))
@@ -155,7 +155,7 @@ function findNextLocation(Board) {
     return [] 
 }
 
-function solveBoard(board) {
+export function solveBoard(board) {
     // creates a copy of the board and uses it solve the board 
     const boardCopy = JSON.parse(JSON.stringify(board))
     
@@ -233,12 +233,12 @@ function checkSquares(board) {
     return true 
 }
 
-function isSolved(board) {
+export function isSolved(board) {
     // returns true if board is complete and solved, otherwise returns false
     return checkRows(board) && checkColumns(board) && checkSquares(board)
 }
 
-function chooseGame(difficulty, board) {
+export function chooseGame(difficulty, board) {
     // takes a solved board and returns an object with
     // a) a board where several pieces are Xs
     // b) a 2d array map of colors to display to player 
@@ -260,6 +260,3 @@ function chooseGame(difficulty, board) {
     }
 }
 
-module.exports = {
-    testBoard, chooseGame, isSolved, solveBoard, generateBoard
-}
